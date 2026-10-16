@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Kevin Kipyegon</title>
+    <link rel="icon" type="image/jpeg" href="/static/images/logo_avatar_44.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-md w-full text-center space-y-6 bg-slate-900/80 border border-slate-800 p-8 rounded-2xl shadow-2xl">
+        <div class="w-16 h-16 mx-auto rounded-full overflow-hidden border-2 border-emerald-500/40 shadow-lg shadow-emerald-500/10">
+            <img src="/static/images/logo_avatar_44.jpg" alt="Kevin Kipyegon 44 Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="space-y-2">
+            <h1 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">404</h1>
+            <h2 class="text-xl font-semibold text-slate-200">Reconciliation Error: Page Not Found</h2>
+            <p class="text-sm text-slate-400">The requested financial ledger or path could not be balanced on this server.</p>
+        </div>
+        <div class="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition-all duration-200">
+                Return to Portfolio
+            </a>
+            <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm transition-all duration-200">
+                Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+</body>
+</html>

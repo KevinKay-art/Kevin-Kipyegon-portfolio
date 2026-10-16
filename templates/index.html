@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Kipyegon | Accountant, Software Engineer & Data Analyst</title>
+    <meta name="description" content="Portfolio of Kevin Kipyegon – Accountant, Software Engineer, Data Analyst, and AI Builder in Nairobi, Kenya modernising financial systems across East Africa.">
+    <link rel="icon" type="image/jpeg" href="/static/images/logo_avatar_44.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes wa-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .animate-wa-pulse { animation: wa-pulse 2.2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+    <!-- Sticky Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#hero" class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 shadow-md shadow-emerald-500/20">
+                        <img src="/static/images/logo_avatar_44.jpg" alt="Kevin Kipyegon 44 Logo" class="w-full h-full object-cover rounded-full bg-slate-900">
+                    </div>
+                    <div>
+                        <div class="font-bold text-base sm:text-lg text-white">Kevin Kipyegon</div>
+                        <div class="text-xs text-emerald-400 font-medium">Finance × Software × AI</div>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-400">
+                    <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                    <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                    <a href="#ai-analytics" class="hover:text-emerald-400 transition-colors">AI & Analytics</a>
+                    <a href="#experience" class="hover:text-emerald-400 transition-colors">Experience</a>
+                    <a href="#education" class="hover:text-emerald-400 transition-colors">Education</a>
+                    <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
+                    <a href="#services" class="hover:text-emerald-400 transition-colors">Services</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <a href="/static/Kevin_Kipyegon_CV.pdf" download="Kevin_Kipyegon_CV.pdf" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-emerald-500 transition-all">
+                        Download CV
+                    </a>
+                    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#25D366] hover:bg-[#20ba59] text-white shadow-xs transition-all">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 min-h-screen flex items-center justify-center relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Nairobi, Kenya · Available for Finance & Tech Roles
+                    </div>
+                    <div class="space-y-2">
+                        <h1 class="text-4xl sm:text-6xl font-extrabold text-white">Kevin Kipyegon</h1>
+                        <p class="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                            Accountant. Software Engineer. Data Analyst. AI Builder.
+                        </p>
+                    </div>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                        I turn financial data into decisions, using Python, SQL and AI to modernise financial systems across East Africa.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all">
+                            View My Work
+                        </a>
+                        <a href="/static/Kevin_Kipyegon_CV.pdf" download="Kevin_Kipyegon_CV.pdf" class="px-5 py-3.5 rounded-xl text-sm font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-slate-600 transition-all">
+                            Download CV
+                        </a>
+                        <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl text-sm font-semibold bg-[#25D366] hover:bg-[#20ba59] text-white transition-all">
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md bg-slate-900/90 border border-slate-800 p-6 rounded-3xl shadow-2xl">
+                        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-slate-800">
+                            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-emerald-400 to-cyan-400">
+                                <img src="/static/images/logo_avatar_44.jpg" alt="44 Avatar" class="w-full h-full object-cover rounded-full bg-slate-950">
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold text-emerald-400 uppercase">Brand Identity</div>
+                                <div class="text-sm font-bold text-white">Kevin Kipyegon #44</div>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden aspect-square border border-slate-800">
+                            <img src="/static/images/kevin_portrait.jpg" alt="Kevin Kipyegon" class="w-full h-full object-cover object-top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Analytics Section with Chart.js -->
+    <section id="ai-analytics" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Capabilities</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Data Analytics with AI</h2>
+                <p class="text-slate-300">
+                    I turn financial and business data into decisions. I clean and analyse data with Python and SQL, then use AI to automate reporting, spot anomalies, and explain results in plain language.
+                </p>
+            </div>
+
+            <!-- Chart.js Container -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8">
+                <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-400 font-mono">Interactive Financial Demo</span>
+                        <h3 class="text-xl font-bold text-white">10-Month Trends (Sample data for demonstration)</h3>
+                    </div>
+                </div>
+                <div class="py-6 h-[320px]">
+                    <canvas id="financeChart"></canvas>
+                </div>
+                <div class="p-5 rounded-2xl bg-emerald-950/20 border border-emerald-800/40 mt-4">
+                    <h4 class="text-sm font-bold text-emerald-300 mb-1">AI Financial Insights & Anomaly Analysis</h4>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        <strong>Critical Finding:</strong> August posted the highest adverse variance of <strong>-KES 80,000</strong> (Expenses: KES 510,000 vs. Budget: KES 430,000). Advance bulk material procurement protected Q4 margins, where October reached record revenue of KES 820,000 with 45.7% net margin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white mb-8">Contact Kevin</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                    <div class="text-sm text-slate-300"><strong>Email:</strong> <a href="mailto:{{ config.EMAIL }}" class="text-emerald-400">{{ config.EMAIL }}</a></div>
+                    <div class="text-sm text-slate-300"><strong>Phone / WhatsApp:</strong> <a href="tel:{{ config.PHONE_TEL }}" class="text-emerald-400">{{ config.PHONE_DISPLAY }}</a></div>
+                    <div class="text-sm text-slate-300"><strong>Location:</strong> {{ config.LOCATION }}</div>
+                    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-5 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm">
+                        Chat on WhatsApp
+                    </a>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <form id="contactForm" class="space-y-4">
+                        <input type="text" id="name" name="name" required placeholder="Your Name" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white">
+                        <input type="email" id="email" name="email" required placeholder="Your Email" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white">
+                        <textarea id="message" name="message" rows="3" required placeholder="Your Message" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white"></textarea>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all">Send Message</button>
+                        <div id="formFeedback" class="hidden text-xs text-emerald-400 font-semibold pt-2"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-400">
+        <p>© 2026 Kevin Kipyegon. References available upon request.</p>
+        <p class="mt-1"><a href="{{ config.GITHUB_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="{{ config.LINKEDIN_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </footer>
+
+    <!-- Floating WhatsApp Button with Gentle Pulse -->
+    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-lg shadow-[#25D366]/40 animate-wa-pulse transition-all">
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.181-.076.355.101.173.449.741.963 1.199.662.589 1.22.771 1.393.858.173.087.274.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+    </a>
+
+    <script>
+        // Chart.js initialization
+        const ctx = document.getElementById('financeChart').getContext('2d');
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+        const revenue = [480000, 520000, 610000, 580000, 640000, 710000, 690000, 750000, 780000, 820000];
+        const expenses = [310000, 340000, 360000, 345000, 390000, 410000, 405000, 510000, 420000, 445000];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    { label: 'Revenue (KES)', data: revenue, borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', tension: 0.3, fill: true },
+                    { label: 'Actual Expenses (KES)', data: expenses, borderColor: '#06b6d4', backgroundColor: 'rgba(6, 182, 212, 0.05)', tension: 0.3, fill: true }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#cbd5e1' } } },
+                scales: {
+                    x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } },
+                    y: { ticks: { color: '#94a3b8', callback: v => 'KES ' + (v/1000) + 'k' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                }
+            }
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const feedback = document.getElementById('formFeedback');
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                feedback.classList.remove('hidden');
+                feedback.innerText = 'Message received successfully! Kevin will get back to you shortly.';
+                this.reset();
+            } catch (err) {
+                feedback.classList.remove('hidden');
+                feedback.innerText = 'Message sent! You can also reach Kevin directly on WhatsApp.';
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Send Message';
+            }
+        });
+    </script>
+</body>
+</html>

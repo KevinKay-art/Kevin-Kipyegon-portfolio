@@ -1,0 +1,39 @@
+{
+  "profile": {
+    "name": "Kevin Kipyegon",
+    "tagline": "Accountant. Software Engineer. Data Analyst. AI Builder.",
+    "subline": "I turn financial data into decisions, using Python, SQL and AI to modernise financial systems across East Africa.",
+    "logo_avatar": "/static/images/logo_avatar_44.jpg",
+    "portrait": "/static/images/kevin_portrait.jpg",
+    "cv_path": "/static/Kevin_Kipyegon_CV.pdf",
+    "location": "Nairobi, Kenya",
+    "email": "kevinkipyegon111@gmail.com",
+    "phone_display": "0740 840 045",
+    "phone_tel": "+254740840045",
+    "whatsapp_number": "254740840045",
+    "whatsapp_default_text": "Hello Kevin, I visited your portfolio and would like to connect.",
+    "github_url": "https://github.com/KevinKay-art",
+    "linkedin_url": "https://www.linkedin.com/in/kevin-kipyegon-814439362/"
+  },
+  "about": {
+    "summary": "Detail-oriented accounting and technology professional with a Bachelor of Commerce (Accounting Option, Second Class Honours Upper Division) from Kabarak University and over 5 years of progressive experience in financial reporting, budgeting, reconciliation, and tax compliance. Currently expanding into software development and data analysis through PLP Africa (2024–present). Pursuing CPA (KASNEB) and FMVA certifications. Bilingual in English and Swahili.",
+    "pillars": [
+      { "title": "Financial Acumen", "description": "Mastery of IPSAS, IFRS, statutory tax filing (VAT, PAYE, withholding), bank reconciliations, and budgeting controls." },
+      { "title": "Python Engineering", "description": "Building production scripts, automated ETL pipelines, and robust backends that eliminate repetitive manual ledger tasks." },
+      { "title": "Data-Driven Insight", "description": "Transforming messy transactional data into clean relational SQL models, interactive dashboards, and variance trends." },
+      { "title": "AI Solutions", "description": "Implementing LLM-guided ledger audits, plain-language reporting commentary, and intelligent discrepancy detection." }
+    ]
+  },
+  "financial_records": [
+    { "month": "Jan", "revenue": 480000, "expenses": 310000, "budgetExpenses": 330000, "variance": 20000, "netIncome": 170000, "notes": "Favorable utility spend; timely receivables collection" },
+    { "month": "Feb", "revenue": 520000, "expenses": 340000, "budgetExpenses": 335000, "variance": -5000, "netIncome": 180000, "notes": "Minor travel expense variance due to regional tax audit visit" },
+    { "month": "Mar", "revenue": 610000, "expenses": 360000, "budgetExpenses": 350000, "variance": -10000, "netIncome": 250000, "notes": "End of Q1 inventory restocking; strong trading margin" },
+    { "month": "Apr", "revenue": 580000, "expenses": 345000, "budgetExpenses": 350000, "variance": 5000, "netIncome": 235000, "notes": "Consistent operational spend; VAT returns filed smoothly" },
+    { "month": "May", "revenue": 640000, "expenses": 390000, "budgetExpenses": 360000, "variance": -30000, "netIncome": 250000, "notes": "Adverse variance: emergency IT equipment upgrade and staff software licenses" },
+    { "month": "Jun", "revenue": 710000, "expenses": 410000, "budgetExpenses": 420000, "variance": 10000, "netIncome": 300000, "notes": "Mid-year performance peak; favorable operational efficiency" },
+    { "month": "Jul", "revenue": 690000, "expenses": 405000, "budgetExpenses": 410000, "variance": 5000, "netIncome": 285000, "notes": "Steady cash flow; payroll reconciled with zero discrepancy" },
+    { "month": "Aug", "revenue": 750000, "expenses": 510000, "budgetExpenses": 430000, "variance": -80000, "netIncome": 240000, "notes": "Significant adverse variance: advance bulk material procurement for Q4 contracts" },
+    { "month": "Sep", "revenue": 780000, "expenses": 420000, "budgetExpenses": 440000, "variance": 20000, "netIncome": 360000, "notes": "Strong operational rebound; benefits of August procurement realized" },
+    { "month": "Oct", "revenue": 820000, "expenses": 445000, "budgetExpenses": 450000, "variance": 5000, "netIncome": 375000, "notes": "Record monthly top-line revenue; tight departmental cost governance" }
+  ]
+}

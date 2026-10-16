@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #020617;
+    --text-primary: #f8fafc;
+    --accent-color: #10b981;
+    --accent-rgb: 16, 185, 129;
+    --secondary-color: #06b6d4;
+  }
+
+  [data-palette="emerald"] {
+    --accent-color: #10b981;
+    --accent-rgb: 16, 185, 129;
+    --secondary-color: #06b6d4;
+  }
+
+  [data-palette="cobalt"] {
+    --accent-color: #3b82f6;
+    --accent-rgb: 59, 130, 246;
+    --secondary-color: #6366f1;
+  }
+
+  [data-palette="gold"] {
+    --accent-color: #eab308;
+    --accent-rgb: 234, 179, 8;
+    --secondary-color: #f59e0b;
+  }
+
+  .light {
+    --bg-primary: #f8fafc;
+    --text-primary: #0f172a;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color, #10b981);
+}
+
+/* Smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dynamic selection background based on active palette */
+::selection {
+  background-color: var(--accent-color, #10b981);
+  color: #020617;
+}
+
+/* Subtle pulse for WhatsApp */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.2s infinite;
+}
