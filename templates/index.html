@@ -24,20 +24,21 @@
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
 
     <!-- Sticky Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="#hero" class="flex items-center gap-3">
-                    <div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 shadow-md shadow-emerald-500/20">
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-500 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
                         <img src="/static/images/logo_avatar_44.jpg" alt="Kevin Kipyegon 44 Logo" class="w-full h-full object-cover rounded-full bg-slate-900">
                     </div>
                     <div>
-                        <div class="font-bold text-base sm:text-lg text-white">Kevin Kipyegon</div>
+                        <div class="font-bold text-base sm:text-lg text-white group-hover:text-emerald-400 transition-colors">Kevin Kipyegon</div>
                         <div class="text-xs text-emerald-400 font-medium">Finance × Software × AI</div>
                     </div>
                 </a>
 
-                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-400">
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
                     <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
                     <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
                     <a href="#ai-analytics" class="hover:text-emerald-400 transition-colors">AI & Analytics</a>
@@ -49,13 +50,30 @@
                 </nav>
 
                 <div class="flex items-center gap-3">
-                    <a href="/static/Kevin_Kipyegon_CV.pdf" download="Kevin_Kipyegon_CV.pdf" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-emerald-500 transition-all">
-                        Download CV
-                    </a>
+                    <button onclick="openCVModal()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-emerald-500 transition-all">
+                        View CV
+                    </button>
                     <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-xs font-bold bg-[#25D366] hover:bg-[#20ba59] text-white shadow-xs transition-all">
                         WhatsApp
                     </a>
+                    <button onclick="toggleMobileNav()" class="p-2 lg:hidden text-slate-300 hover:text-white" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-4 space-y-3">
+            <div class="grid grid-cols-2 gap-3 text-sm">
+                <a href="#about" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">About</a>
+                <a href="#skills" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Skills</a>
+                <a href="#ai-analytics" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">AI & Analytics</a>
+                <a href="#experience" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Experience</a>
+                <a href="#education" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Education</a>
+                <a href="#projects" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Projects</a>
+                <a href="#services" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Services</a>
+                <a href="#contact" onclick="toggleMobileNav()" class="py-1 text-slate-300 hover:text-emerald-400">Contact</a>
             </div>
         </div>
     </header>
@@ -82,9 +100,9 @@
                         <a href="#projects" class="px-6 py-3.5 rounded-xl text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all">
                             View My Work
                         </a>
-                        <a href="/static/Kevin_Kipyegon_CV.pdf" download="Kevin_Kipyegon_CV.pdf" class="px-5 py-3.5 rounded-xl text-sm font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-slate-600 transition-all">
+                        <button onclick="openCVModal()" class="px-5 py-3.5 rounded-xl text-sm font-semibold bg-slate-900 border border-slate-700 text-slate-200 hover:border-slate-600 transition-all">
                             Download CV
-                        </a>
+                        </button>
                         <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl text-sm font-semibold bg-[#25D366] hover:bg-[#20ba59] text-white transition-all">
                             Chat on WhatsApp
                         </a>
@@ -93,17 +111,34 @@
 
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-md bg-slate-900/90 border border-slate-800 p-6 rounded-3xl shadow-2xl">
-                        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-slate-800">
-                            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-emerald-400 to-cyan-400">
-                                <img src="/static/images/logo_avatar_44.jpg" alt="44 Avatar" class="w-full h-full object-cover rounded-full bg-slate-950">
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-emerald-400 to-cyan-400">
+                                    <img src="/static/images/logo_avatar_44.jpg" alt="44 Avatar" class="w-full h-full object-cover rounded-full bg-slate-950">
+                                </div>
+                                <div>
+                                    <div class="text-xs font-semibold text-emerald-400 uppercase">Brand Identity</div>
+                                    <div class="text-sm font-bold text-white">Kevin Kipyegon #44</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="text-xs font-semibold text-emerald-400 uppercase">Brand Identity</div>
-                                <div class="text-sm font-bold text-white">Kevin Kipyegon #44</div>
-                            </div>
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Verified</span>
                         </div>
                         <div class="rounded-2xl overflow-hidden aspect-square border border-slate-800">
                             <img src="/static/images/kevin_portrait.jpg" alt="Kevin Kipyegon" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 pt-4 mt-4 text-center border-t border-slate-800/60">
+                            <div class="p-2 rounded-lg bg-slate-800/40">
+                                <div class="text-base font-bold text-emerald-400">5+ Yrs</div>
+                                <div class="text-[10px] text-slate-400 uppercase">Accounting</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-slate-800/40">
+                                <div class="text-base font-bold text-teal-400">PLP Eng</div>
+                                <div class="text-[10px] text-slate-400 uppercase">Software</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-slate-800/40">
+                                <div class="text-base font-bold text-cyan-400">B.Com</div>
+                                <div class="text-[10px] text-slate-400 uppercase">Kabarak</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,15 +146,186 @@
         </div>
     </section>
 
-    <!-- AI & Analytics Section with Chart.js -->
-    <section id="ai-analytics" class="py-20">
+    <!-- About Section -->
+    <section id="about" class="py-20 border-t border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mb-12">
-                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Capabilities</div>
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Professional Background</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Bridging Accounting with Modern Software & AI</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
+                <div class="lg:col-span-7 space-y-4 text-slate-300 text-base leading-relaxed">
+                    <p>
+                        Detail-oriented accounting and technology professional with a Bachelor of Commerce (Accounting Option, Second Class Honours Upper Division) from Kabarak University and over 5 years of progressive experience in financial reporting, budgeting, reconciliation, and tax compliance.
+                    </p>
+                    <p>
+                        Currently expanding into software development and data analysis through PLP Africa (2024–present). Pursuing CPA (KASNEB) and FMVA certifications. Bilingual in English and Swahili.
+                    </p>
+                    <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 mt-4 text-sm">
+                        <div class="text-xs font-bold text-emerald-400 uppercase">Key Qualifications</div>
+                        <div>✓ <strong>B.Com (Accounting)</strong> – Kabarak University (Second Class Honours Upper Division)</div>
+                        <div>✓ <strong>Recognized Academic Performance</strong> in Financial Accounting & Auditing</div>
+                        <div>✓ <strong>Software Engineering & Python Automation</strong> – PLP Africa</div>
+                        <div>✓ <strong>Certifications in Progress</strong>: CPA (KASNEB) & FMVA (Corporate Finance Institute)</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-3">
+                    <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider">East African Focus</div>
+                    <h3 class="text-lg font-bold text-white">Modernising Regional Financial Infrastructure</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Dedicated to automating statutory KRA compliance (VAT, PAYE, withholding), eliminating multi-day bank reconciliation bottlenecks, and providing clear data visibility for East African SMEs and corporate enterprises.
+                    </p>
+                </div>
+            </div>
+
+            <!-- What I Bring Row (4 Pillars) -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-white">What I Bring</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold mb-3">01</div>
+                        <h4 class="font-bold text-white mb-1">Financial Acumen</h4>
+                        <p class="text-xs text-slate-400">Mastery of IPSAS, IFRS, statutory tax filing, multi-bank reconciliations, and budgeting controls.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold mb-3">02</div>
+                        <h4 class="font-bold text-white mb-1">Python Engineering</h4>
+                        <p class="text-xs text-slate-400">Writing scripts, automated ETL pipelines, and robust tools that eliminate repetitive ledger entry.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold mb-3">03</div>
+                        <h4 class="font-bold text-white mb-1">Data-Driven Insight</h4>
+                        <p class="text-xs text-slate-400">Transforming messy transaction logs into clean relational SQL models, dashboards, and variance reports.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-300 flex items-center justify-center font-bold mb-3">04</div>
+                        <h4 class="font-bold text-white mb-1">AI Solutions</h4>
+                        <p class="text-xs text-slate-400">Deploying models for anomaly flagging in ledgers, plain-language commentary, and query assistants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Core Competencies</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Skills & Toolchain</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Accounting & Finance -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Accounting & Finance
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>• Financial Reporting & Analysis</li>
+                        <li>• Budgeting & Forecasting</li>
+                        <li>• Tax Preparation (VAT, PAYE, Withholding)</li>
+                        <li>• Auditing & Internal Controls</li>
+                        <li>• Bank Reconciliation</li>
+                        <li>• Accounts Payable & Receivable</li>
+                        <li>• Financial Statements</li>
+                        <li>• Payroll Processing</li>
+                        <li>• IFRS and IPSAS Standards</li>
+                    </ul>
+                </div>
+
+                <!-- Programming & Data -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-teal-400"></span> Programming & Data
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>• Python (Data scripts, automation, Pandas, NumPy)</li>
+                        <li>• SQL (Querying, relational schema design)</li>
+                        <li>• Data cleaning & automated reporting pipelines</li>
+                        <li>• AI/LLM integration & prompt engineering</li>
+                        <li>• Variance & trend analysis algorithms</li>
+                    </ul>
+                </div>
+
+                <!-- Web Development -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Web Development
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>• HTML5 & Modern CSS / Tailwind</li>
+                        <li>• JavaScript & Responsive front-end interfaces</li>
+                        <li>• Flask & RESTful API architecture</li>
+                        <li>• Interactive Chart.js data visualizations</li>
+                    </ul>
+                </div>
+
+                <!-- Tools & ERP -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Tools & Software
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>• QuickBooks</li>
+                        <li>• Sage</li>
+                        <li>• Tally ERP</li>
+                        <li>• Microsoft Excel (Advanced: PivotTables, VLOOKUP, Financial Modelling)</li>
+                        <li>• Git & GitHub</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-teal-400"></span> Languages
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li>• <strong>English</strong>: Full professional proficiency</li>
+                        <li>• <strong>Swahili</strong>: Full professional proficiency (translation, interpretation & localisation)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & Analytics Section with Chart.js -->
+    <section id="ai-analytics" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Applied Technology</div>
                 <h2 class="text-3xl font-extrabold text-white mb-4">Data Analytics with AI</h2>
                 <p class="text-slate-300">
                     I turn financial and business data into decisions. I clean and analyse data with Python and SQL, then use AI to automate reporting, spot anomalies, and explain results in plain language.
                 </p>
+            </div>
+
+            <!-- 4-Step Workflow -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
+                    <div class="text-xs font-mono text-emerald-400 mb-1">01. Collect & Clean</div>
+                    <div class="font-bold text-white mb-1">Python (Pandas) & SQL</div>
+                    <div class="text-xs text-slate-400">Extract, clean, and validate transaction and accounting data.</div>
+                </div>
+                <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
+                    <div class="text-xs font-mono text-teal-400 mb-1">02. Analyse</div>
+                    <div class="font-bold text-white mb-1">Variance & Excel</div>
+                    <div class="text-xs text-slate-400">Trend analysis, budget vs actual variance, reconciliation checks.</div>
+                </div>
+                <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
+                    <div class="text-xs font-mono text-cyan-400 mb-1">03. Synthesize</div>
+                    <div class="font-bold text-white mb-1">Anomaly & Commentary</div>
+                    <div class="text-xs text-slate-400">Scan ledgers for outliers and draft plain-language commentary.</div>
+                </div>
+                <div class="p-5 rounded-xl bg-slate-900 border border-slate-800">
+                    <div class="text-xs font-mono text-emerald-400 mb-1">04. Deliver</div>
+                    <div class="font-bold text-white mb-1">Dashboards & Packs</div>
+                    <div class="text-xs text-slate-400">Interactive charts and clear written insights for decisions.</div>
+                </div>
             </div>
 
             <!-- Chart.js Container -->
@@ -143,20 +349,231 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Track Record</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Professional Experience</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Role 1 -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Accountant Intern</h3>
+                            <div class="text-sm text-emerald-400">County Government of Kericho · Kericho, Kenya</div>
+                        </div>
+                        <span class="text-xs font-mono bg-slate-800 px-3 py-1 rounded text-slate-300 self-start sm:self-auto">April 2023 – April 2024</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mt-4">
+                        <li>• Prepared and reviewed financial statements to IPSAS and government public accounting standards.</li>
+                        <li>• Processed and verified invoices, receipts, and payments across multiple departments.</li>
+                        <li>• Performed monthly bank reconciliations and general ledger balancing.</li>
+                        <li>• Assisted with annual budgets and forecasts by analysing historical expenditure trends.</li>
+                        <li>• Supported VAT, PAYE, and withholding tax filings in line with KRA regulations.</li>
+                        <li>• Maintained systematic audit-ready records.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Junior Accountant (Industrial Attachment)</h3>
+                            <div class="text-sm text-emerald-400">KEPHIS (Kenya Plant Health Inspectorate Service) · Nairobi, Kenya</div>
+                        </div>
+                        <span class="text-xs font-mono bg-slate-800 px-3 py-1 rounded text-slate-300 self-start sm:self-auto">September 2021 – November 2021</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300 mt-4">
+                        <li>• Managed daily financial transactions, cheque writing, bank deposits, and payment processing.</li>
+                        <li>• Executed regular bank reconciliations against internal cashbooks.</li>
+                        <li>• Maintained records and systematic filing management.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Education</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Education & Certifications</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded">2024 – Present</span>
+                    <h3 class="text-lg font-bold text-white mt-3">Software Development & Engineering</h3>
+                    <div class="text-xs text-emerald-400 font-medium mb-2">PLP Africa (Power Learn Project)</div>
+                    <p class="text-xs text-slate-400">Python, web development, relational database design, SQL, software engineering principles.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded">Graduated Dec 2021</span>
+                    <h3 class="text-lg font-bold text-white mt-3">Bachelor of Commerce (Accounting)</h3>
+                    <div class="text-xs text-emerald-400 font-medium mb-2">Kabarak University</div>
+                    <div class="text-xs font-semibold text-teal-400 mb-1">Second Class Honours (Upper Division)</div>
+                    <p class="text-xs text-slate-400">Recognized for outstanding performance in Financial Accounting and Auditing & Practice Investigations.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <span class="text-xs font-mono text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded">In Progress / Completed</span>
+                    <h3 class="text-lg font-bold text-white mt-3">Professional Certifications</h3>
+                    <div class="text-xs text-emerald-400 font-medium mb-2">KASNEB, CFI & Coursera</div>
+                    <ul class="text-xs text-slate-400 space-y-1 mt-2">
+                        <li>• CPA (KASNEB) – In Progress</li>
+                        <li>• FMVA® (Corporate Finance Institute) – In Progress</li>
+                        <li>• Excel for Accountants (Coursera, 2022)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Portfolio</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Featured Projects</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-emerald-400 mb-2">Automation</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Financial Reporting Automation</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-4">Python scripts that automate data extraction, cleaning, and financial report preparation, drastically cutting down manual processing hours.</p>
+                        <div class="text-xs font-mono text-slate-400 mb-4">Python · Pandas · ETL · Financial Reporting</div>
+                    </div>
+                    <a href="{{ config.GITHUB_URL }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">View on GitHub →</a>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-teal-400 mb-2">Database & SQL</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Transaction Data Analysis with SQL</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-4">Relational database design and querying of large transaction datasets for trend evaluation, discrepancy detection, and debtor aging.</p>
+                        <div class="text-xs font-mono text-slate-400 mb-4">SQL · PostgreSQL · Schema Design · Audit Trail</div>
+                    </div>
+                    <a href="{{ config.GITHUB_URL }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">View on GitHub →</a>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-cyan-400 mb-2">Web Systems</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Responsive Web Interfaces</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-4">Modern HTML/CSS/JavaScript and Flask web applications engineered for cross-device responsiveness, clean UI, and accessible finance dashboards.</p>
+                        <div class="text-xs font-mono text-slate-400 mb-4">HTML5 · Tailwind CSS · JavaScript · Flask</div>
+                    </div>
+                    <a href="{{ config.GITHUB_URL }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">View on GitHub →</a>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-emerald-400 mb-2">Research & Policy</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Research: Tax Reforms & SME Performance</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 mb-4">Academic study examining how recent Kenyan tax reforms affect SME financial performance and compliance, using structured surveys and policy analysis.</p>
+                        <div class="text-xs font-mono text-slate-400 mb-4">Tax Policy · KRA Compliance · Kabarak University</div>
+                    </div>
+                    <a href="{{ config.GITHUB_URL }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">View on GitHub →</a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ config.GITHUB_URL }}" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white font-semibold text-sm hover:border-emerald-500 transition-all">
+                    See more on GitHub (@KevinKay-art) →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-semibold text-emerald-500 uppercase tracking-widest mb-2">Services</div>
+                <h2 class="text-3xl font-extrabold text-white mb-4">What I Offer</h2>
+                <div class="h-1 w-16 bg-emerald-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">Financial Reporting & Reconciliation Support</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Preparation of IFRS and IPSAS-compliant statements, ledger audits, and multi-bank reconciliations.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">Data Analysis & Excel Dashboards</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Dynamic cash flow models, PivotTable templates, and KPI monitoring sheets for business owners.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">Python Automation for Finance Workflows</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Automating invoice ingestion, batch reconciliation checks, and automated ledger anomaly detection.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">AI-Assisted Reporting & Insights</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Automated management commentaries and natural-language query tools for business ledgers.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">Web Development</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Responsive web applications and dashboards built with modern HTML/CSS/JavaScript and Flask.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="text-lg font-bold text-white mb-2">English–Swahili Translation & Localisation</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Professional translation and document localisation for corporate, financial, and compliance texts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-16 border-t border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white mb-6">Leadership & Volunteering</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-white">Treasurer</h3>
+                        <span class="text-xs font-mono text-slate-400">2020 – 2021</span>
+                    </div>
+                    <div class="text-xs text-emerald-400 mb-2">Kabarak University Accounting Club</div>
+                    <p class="text-xs text-slate-400">Managed club funds, developed event budgets, tracked allocations, and presented audited statements.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-white">Volunteer Organizer</h3>
+                        <span class="text-xs font-mono text-slate-400">2019</span>
+                    </div>
+                    <div class="text-xs text-emerald-400 mb-2">Kabarak University Career Fair</div>
+                    <p class="text-xs text-slate-400">Coordinated workshops, employer networking, and student mentorship logistics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 border-t border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white mb-8">Contact Kevin</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
+                <div class="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-2xl space-y-4">
                     <div class="text-sm text-slate-300"><strong>Email:</strong> <a href="mailto:{{ config.EMAIL }}" class="text-emerald-400">{{ config.EMAIL }}</a></div>
                     <div class="text-sm text-slate-300"><strong>Phone / WhatsApp:</strong> <a href="tel:{{ config.PHONE_TEL }}" class="text-emerald-400">{{ config.PHONE_DISPLAY }}</a></div>
                     <div class="text-sm text-slate-300"><strong>Location:</strong> {{ config.LOCATION }}</div>
-                    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-5 py-3 rounded-xl bg-[#25D366] text-white font-bold text-sm">
-                        Chat on WhatsApp
-                    </a>
+                    <div class="pt-4">
+                        <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm transition-all">
+                            Chat on WhatsApp Directly
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <div class="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-2xl">
                     <form id="contactForm" class="space-y-4">
                         <input type="text" id="name" name="name" required placeholder="Your Name" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white">
                         <input type="email" id="email" name="email" required placeholder="Your Email" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white">
@@ -172,15 +589,57 @@
     <!-- Footer -->
     <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-400">
         <p>© 2026 Kevin Kipyegon. References available upon request.</p>
-        <p class="mt-1"><a href="{{ config.GITHUB_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="{{ config.LINKEDIN_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <p class="mt-2"><a href="{{ config.GITHUB_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="{{ config.LINKEDIN_URL }}" class="hover:text-emerald-400" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="mailto:{{ config.EMAIL }}" class="hover:text-emerald-400">Email</a></p>
     </footer>
 
     <!-- Floating WhatsApp Button with Gentle Pulse -->
-    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-lg shadow-[#25D366]/40 animate-wa-pulse transition-all">
+    <a href="{{ config.WHATSAPP_URL }}" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-lg shadow-[#25D366]/40 animate-wa-pulse transition-all" aria-label="WhatsApp">
         <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.177.181-.076.355.101.173.449.741.963 1.199.662.589 1.22.771 1.393.858.173.087.274.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
     </a>
 
+    <!-- CV Modal -->
+    <div id="cvModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <h3 class="text-xl font-bold text-white">Curriculum Vitae Preview</h3>
+                <button onclick="closeCVModal()" class="text-slate-400 hover:text-white font-bold text-xl">&times;</button>
+            </div>
+            <div class="space-y-4 text-xs sm:text-sm text-slate-300">
+                <div>
+                    <h4 class="font-bold text-white text-base">KEVIN KIPYEGON</h4>
+                    <p class="text-emerald-400 text-xs">Accountant | Software Engineer | Data Analyst</p>
+                    <p class="text-slate-400 text-xs">Nairobi, Kenya · {{ config.PHONE_DISPLAY }} · {{ config.EMAIL }}</p>
+                </div>
+                <div>
+                    <h5 class="text-xs font-bold text-emerald-400 uppercase">Professional Summary</h5>
+                    <p class="text-xs text-slate-300">Accounting and technology professional holding a Bachelor of Commerce (Upper Division) with over 5 years of experience in financial reporting, reconciliation, and tax compliance.</p>
+                </div>
+                <div>
+                    <h5 class="text-xs font-bold text-emerald-400 uppercase">Experience</h5>
+                    <p class="text-xs"><strong>Accountant Intern</strong> – County Government of Kericho (2023–2024)</p>
+                    <p class="text-xs"><strong>Junior Accountant</strong> – KEPHIS (2021)</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center pt-4 border-t border-slate-800">
+                <span class="text-xs text-slate-400">Verified Curriculum Vitae</span>
+                <a href="/static/Kevin_Kipyegon_CV.pdf" download="Kevin_Kipyegon_CV.pdf" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs">
+                    Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        function toggleMobileNav() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        function openCVModal() {
+            document.getElementById('cvModal').classList.remove('hidden');
+        }
+        function closeCVModal() {
+            document.getElementById('cvModal').classList.add('hidden');
+        }
+
         // Chart.js initialization
         const ctx = document.getElementById('financeChart').getContext('2d');
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
