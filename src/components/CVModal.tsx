@@ -174,7 +174,7 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
         {/* Modal Footer */}
         <div className="px-6 py-4 border-t border-slate-800/40 flex items-center justify-between bg-slate-950/40">
           <span className="text-xs text-slate-400">
-            Document format: Standard PDF 1.4
+            Verified Curriculum Vitae
           </span>
           <a
             href={PORTFOLIO_DATA.profile.cvPath}

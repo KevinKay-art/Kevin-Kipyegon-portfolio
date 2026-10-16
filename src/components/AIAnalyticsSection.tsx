@@ -206,9 +206,9 @@ export const AIAnalyticsSection: React.FC = () => {
     },
     {
       num: "03",
-      title: "Apply AI",
-      tech: "LLM Commentary · Anomaly Detection",
-      desc: "Leverage LLM prompt chains to scan ledgers for anomalies, draft plain-language commentary, and answer natural-language queries.",
+      title: "Synthesize & Explain",
+      tech: "Automated Commentary · Anomaly Detection",
+      desc: "Scan ledgers for anomalies, draft plain-language management commentary, and interrogate financial datasets in natural language.",
       icon: <Cpu className="w-5 h-5 text-cyan-400" />
     },
     {
@@ -414,16 +414,16 @@ export const AIAnalyticsSection: React.FC = () => {
               <div className="space-y-1.5 flex-1">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h4 className={`text-sm font-bold ${theme === 'light' ? 'text-emerald-950' : 'text-emerald-300'}`}>
-                    AI Financial Insights & Anomaly Analysis
+                    Management Variance Commentary & Audit Notes
                   </h4>
                   <span className="text-[11px] font-mono text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-sm">
-                    Generated via Rule-based & LLM Pipeline
+                    Automated Variance Report
                   </span>
                 </div>
                 <p className={`text-xs sm:text-sm leading-relaxed ${
                   theme === 'light' ? 'text-slate-700' : 'text-slate-300'
                 }`}>
-                  <strong>Critical Finding:</strong> August posted the highest adverse variance of <strong>-KES 80,000</strong> (Expenses: KES 510,000 vs. Budget: KES 430,000). <em>Why it matters:</em> An advance bulk inventory procurement was executed prior to anticipated supplier tariff increases, successfully protecting Q4 margins where revenue reached a record KES 820,000 in October with 45.7% net operating margin.
+                  <strong>Critical Finding:</strong> August posted the highest adverse variance of <strong>-KES 80,000</strong> (Expenses: KES 510,000 vs. Budget: KES 430,000). <em>Operational Context:</em> An advance bulk inventory procurement was executed prior to anticipated supplier tariff increases, successfully protecting Q4 margins where revenue reached a record KES 820,000 in October with 45.7% net operating margin.
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-2 text-xs text-slate-400">
                   <span><strong>Audit Trail:</strong> Bank reconciliation verified with zero unpresented cheques.</span>
@@ -434,17 +434,17 @@ export const AIAnalyticsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Interactive Chat-Style Assistant for Financial Data Querying */}
+          {/* Interactive Ledger Query Tool */}
           <div className="mt-8 pt-8 border-t border-slate-800/40">
             <div className="flex items-center gap-2 mb-3">
               <Cpu className="w-4 h-4 text-emerald-400" />
               <h4 className={`text-sm font-bold uppercase tracking-wider ${theme === 'light' ? 'text-slate-900' : 'text-white'}`}>
-                Query the Financial Data in Natural Language
+                Interactive Ledger Query Tool
               </h4>
             </div>
 
             <p className="text-xs text-slate-400 mb-4">
-              Click a sample prompt below or ask your own question to test how Kevin's automated financial intelligence pipeline translates numbers into decisions:
+              Select a standard financial inquiry below or enter a custom metric query to inspect the transaction data:
             </p>
 
             {/* Quick Prompt Suggestions */}
@@ -488,7 +488,7 @@ export const AIAnalyticsSection: React.FC = () => {
                 value={queryInput}
                 onChange={(e) => setQueryInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleAskQuestion()}
-                placeholder="Ask about revenue trends, tax filing status, or expense variances..."
+                placeholder="Inquire about revenue trends, monthly variances, or audit status..."
                 className={`flex-1 px-4 py-2.5 rounded-xl text-sm border focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
                   theme === 'light'
                     ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400'
@@ -503,12 +503,12 @@ export const AIAnalyticsSection: React.FC = () => {
                 {isAnalyzing ? (
                   <span className="flex items-center gap-1.5">
                     <span className="w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
-                    <span>Analyzing</span>
+                    <span>Processing</span>
                   </span>
                 ) : (
                   <span className="flex items-center gap-1.5">
                     <Send className="w-3.5 h-3.5" />
-                    <span>Ask AI</span>
+                    <span>Run Query</span>
                   </span>
                 )}
               </button>
@@ -524,7 +524,7 @@ export const AIAnalyticsSection: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between text-slate-400 text-xs font-mono">
-                    <span className="text-emerald-500 font-semibold">Q: {item.q}</span>
+                    <span className="text-emerald-500 font-semibold">{item.q}</span>
                     <span>{item.time}</span>
                   </div>
                   <p className={theme === 'light' ? 'text-slate-700' : 'text-slate-300'}>

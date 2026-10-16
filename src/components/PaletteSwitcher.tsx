@@ -50,10 +50,7 @@ export const PaletteSwitcher: React.FC = () => {
         >
           <div className="px-3 py-2 border-b border-slate-800/40 mb-1">
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Select Brand Palette
-            </div>
-            <div className="text-[11px] text-slate-500">
-              Live preview across charts, accents & glow
+              Color Theme
             </div>
           </div>
 

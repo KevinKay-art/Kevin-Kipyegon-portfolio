@@ -171,9 +171,9 @@ export const PORTFOLIO_DATA = {
       },
       {
         step: 3,
-        title: "Apply AI",
-        tech: "LLM Commentary & Anomaly Detection",
-        description: "Deploy targeted AI prompt chains to flag ledger outliers, generate executive commentary in plain language, and answer natural-language queries."
+        title: "Synthesize & Explain",
+        tech: "Automated Commentary & Anomaly Detection",
+        description: "Deploy targeted analytical chains to flag ledger outliers, generate executive commentary in plain language, and answer natural-language queries."
       },
       {
         step: 4,
@@ -200,8 +200,8 @@ export const PORTFOLIO_DATA = {
         summary: "Real-time indicators tailored for East African SMEs, monitoring VAT thresholds, PAYE liabilities, and cash flow runways."
       },
       {
-        title: "Chat-Style Assistant for Uploaded Financial Data",
-        summary: "Interactive natural-language interface allowing finance heads to query ledgers directly (e.g., 'What was our Q2 gross margin?')."
+        title: "Interactive Financial Ledger Inquiry Tool",
+        summary: "Natural-language query tool allowing finance heads to interrogate ledgers directly (e.g., 'What was our Q2 gross margin?')."
       }
     ],
     tools: [
